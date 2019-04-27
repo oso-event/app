@@ -1,3 +1,4 @@
+import { Proposal } from './Proposals';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,43 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class ProposalService {
 
-  proposals: Array<any> = [
-    {
-      id: 1,
-      title: 'Example 1',
-      speakers: 'María, Luisa',
-      visible: true,
-      votes: 0
-    },
-    {
-      id: 2,
-      title: 'Example 2',
-      speakers: 'Alana',
-      visible: true,
-      votes: 0
-    },
-    {
-      id: 3,
-      title: 'Example 3',
-      speakers: 'Irene',
-      visible: true,
-      votes: 0
-    },
-    {
-      id: 4,
-      title: 'Example 4',
-      speakers: 'Juan',
-      visible: true,
-      votes: 0
-    },
-    {
-      id: 5,
-      title: 'Need a more complex app?',
-      speakers: 'Luis',
-      visible: true,
-      votes: 0
-    }
-  ];
+  proposals: Array<Proposal> = [
+      new Proposal ( 1, 'Example 1', 'María, Luisa', true, 0 ),
+      new Proposal ( 2, 'Example 2', 'Alana', true, 0 ),
+      new Proposal ( 3, 'Example 3', 'Irene', true, 0 ),
+      new Proposal ( 4, 'Example 4', 'Juan', true, 0 ),
+      new Proposal ( 5, 'Need a more complex app?', 'Luis', true, 0 ),
+    ];
 
   constructor() { }
 
