@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { ProposalService } from '../../services/proposal.service';
 import { Proposal } from 'src/app/services/Proposal';
 
@@ -14,8 +14,14 @@ export class HomePage implements OnInit {
   constructor(private proposalService: ProposalService) {}
 
   ngOnInit() {
-    this.proposalService.getProposals().then((props) => {
-      this.proposals = props;
+    this.proposalService.getProposals().then((storedProposals) => {
+      this.proposals = storedProposals;
+    });
+  }
+
+  ionViewWillEnter() {
+    this.proposalService.getProposals().then((storedProposals) => {
+      this.proposals = storedProposals;
     });
   }
 

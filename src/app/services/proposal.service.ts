@@ -2,6 +2,8 @@ import { Proposal } from './Proposal';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
+const STORAGE_KEY = 'storedProposals';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,17 +13,20 @@ export class ProposalService {
 
   constructor(private storage: Storage) { }
 
-  createProposal(title, description) {
-    const randomId = Math.random();
-    this.proposals.push(new Proposal(randomId, title, description, true, 0));
-    this.save();
+  addProposal(title, description) {
+    const newProposal = new Proposal(Math.random(), title, description, true, 0);
+    return this.getProposals().then((storedPorposals: Array<Proposal>) => {
+      if (storedPorposals) {
+        storedPorposals.push(newProposal);
+        return this.storage.set(STORAGE_KEY, storedPorposals);
+      } else {
+        return this.storage.set(STORAGE_KEY, new Array(newProposal));
+      }
+    });
   }
 
-  async getProposals(): Promise<Array<Proposal>> {
-    return await this.storage.get('proposals');
+  getProposals(): Promise<Array<Proposal>> {
+    return this.storage.get(STORAGE_KEY);
   }
 
-  private save() {
-    this.storage.set('proposals', this.proposals);
-  }
 }

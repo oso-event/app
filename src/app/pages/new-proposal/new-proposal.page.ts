@@ -29,8 +29,8 @@ export class NewProposalPage implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  createItem(value) {
-    this.proposalService.createProposal(value.title, value.description);
+  createProposal(value) {
+    this.proposalService.addProposal(value.title, value.description);
     this.newProposalForm.reset();
     this.goBack();
   }
