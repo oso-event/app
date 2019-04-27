@@ -14,13 +14,14 @@ export class ProposalService {
   createProposal(title, description) {
     const randomId = Math.random();
     this.proposals.push(new Proposal(randomId, title, description, true, 0));
+    this.save();
   }
 
   async getProposals(): Promise<Array<Proposal>> {
     return await this.storage.get('proposals');
   }
 
-  saveProposals() {
+  private save() {
     this.storage.set('proposals', this.proposals);
   }
 }
