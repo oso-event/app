@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProposalService } from '../services/proposal.service';
+import { ProposalService } from '../../services/proposal.service';
 
 @Component({
   selector: 'app-home',
