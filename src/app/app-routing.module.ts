@@ -10,7 +10,9 @@ const routes: Routes = [
     path: 'homeAdmin',
     loadChildren: './pages/home/home.module#HomePageModule',
     canActivate: [AuthGuard]
-  }
+  },
+  { path: 'new-proposal', loadChildren: './pages/new-proposal/new-proposal.module#NewProposalPageModule' },
+  { path: 'edit-proposal', loadChildren: './pages/edit-proposal/edit-proposal.module#EditProposalPageModule' }
 ];
 
 @NgModule({

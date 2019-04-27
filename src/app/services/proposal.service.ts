@@ -1,22 +1,26 @@
-import { Proposal } from './Proposals';
+import { Proposal } from './Proposal';
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProposalService {
 
-  proposals: Array<Proposal> = [
-      new Proposal ( 1, 'Example 1', 'María, Luisa', true, 0 ),
-      new Proposal ( 2, 'Example 2', 'Alana', true, 0 ),
-      new Proposal ( 3, 'Example 3', 'Irene', true, 0 ),
-      new Proposal ( 4, 'Example 4', 'Juan', true, 0 ),
-      new Proposal ( 5, 'Need a more complex app?', 'Luis', true, 0 ),
-    ];
+  proposals: Array<Proposal>;
 
-  constructor() { }
+  constructor(private storage: Storage) { }
 
-  getItems() {
-    return this.proposals;
+  createProposal(title, description) {
+    const randomId = Math.random();
+    this.proposals.push(new Proposal(randomId, title, description, true, 0));
+  }
+
+  getProposals() {
+    return this.storage.get('proposals');
+  }
+
+  save() {
+    this.storage.set('proposals', this.proposals);
   }
 }

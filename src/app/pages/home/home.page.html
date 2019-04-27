@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="danger">
     <ion-title center>
       oso.app
     </ion-title>
@@ -15,5 +15,10 @@
         </ion-label>
       </ion-item>
     </ion-list>
+    <ion-fab horizontal="end" edge slot="fixed">
+      <ion-fab-button color="danger" [routerLink]="['/new-proposal']">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
   </div>
 </ion-content>

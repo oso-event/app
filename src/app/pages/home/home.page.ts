@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   constructor(private proposalService: ProposalService) {}
 
   ngOnInit() {
-    this.proposals = this.proposalService.getItems();
+    this.proposals = this.proposalService.getProposals();
   }
 
 }
