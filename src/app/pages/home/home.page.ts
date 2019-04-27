@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProposalService } from '../../services/proposal.service';
+import { Proposal } from 'src/app/services/Proposal';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,14 @@ import { ProposalService } from '../../services/proposal.service';
 })
 export class HomePage implements OnInit {
 
-  proposals: Array<any>;
+  proposals: Array<Proposal>;
 
   constructor(private proposalService: ProposalService) {}
 
   ngOnInit() {
-    this.proposals = this.proposalService.getProposals();
+    this.proposalService.getProposals().then((props) => {
+      this.proposals = props;
+    });
   }
 
 }

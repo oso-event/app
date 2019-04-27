@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ProposalService {
 
-  proposals: Array<Proposal>;
+  proposals: Array<Proposal> = [];
 
   constructor(private storage: Storage) { }
 
@@ -16,11 +16,11 @@ export class ProposalService {
     this.proposals.push(new Proposal(randomId, title, description, true, 0));
   }
 
-  getProposals() {
-    return this.storage.get('proposals');
+  async getProposals(): Promise<Array<Proposal>> {
+    return await this.storage.get('proposals');
   }
 
-  save() {
+  saveProposals() {
     this.storage.set('proposals', this.proposals);
   }
 }
