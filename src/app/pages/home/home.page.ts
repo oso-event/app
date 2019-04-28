@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { ProposalService } from '../../services/proposal.service';
 import { Proposal } from 'src/app/services/Proposal';
+import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { Proposal } from 'src/app/services/Proposal';
 })
 export class HomePage implements OnInit {
 
-  proposals: Array<Proposal>;
+  proposals: Array<Proposal> = [];
 
   constructor(private proposalService: ProposalService) {}
 
@@ -17,11 +18,7 @@ export class HomePage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.proposalService.getProposals().then((storedProposals) => {
-      if (storedProposals) {
-        this.proposals = storedProposals;
-      }
-    });
+    this.proposals = this.proposalService.getProposals();
   }
 
 }

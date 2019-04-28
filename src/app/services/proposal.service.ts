@@ -15,18 +15,11 @@ export class ProposalService {
 
   addProposal(title, description) {
     const newProposal = new Proposal(Math.random(), title, description, true, 0);
-    return this.getProposals().then((storedPorposals: Array<Proposal>) => {
-      if (storedPorposals) {
-        storedPorposals.push(newProposal);
-        return this.storage.set(STORAGE_KEY, storedPorposals);
-      } else {
-        return this.storage.set(STORAGE_KEY, new Array(newProposal));
-      }
-    });
+    this.proposals.push(newProposal);
   }
 
-  getProposals(): Promise<Array<Proposal>> {
-    return this.storage.get(STORAGE_KEY);
+  getProposals(): Array<Proposal> {
+    return this.proposals;
   }
 
 }

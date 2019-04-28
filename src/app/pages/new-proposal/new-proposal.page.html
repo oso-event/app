@@ -11,7 +11,7 @@
 
 <ion-content>
   <ion-content padding>
-    <form [formGroup]="newProposalForm" (submit)="createProposal(newProposalForm.value)">
+    <form [formGroup]="newProposalForm">
       <ion-item>
         <ion-label color="primary" position="floating">Title</ion-label>
         <ion-input type="text" formControlName="title" required></ion-input>
@@ -21,7 +21,7 @@
         <ion-input type="text" formControlName="speakers" required></ion-input>
       </ion-item>
 
-      <ion-button color="danger" class="submit-btn" expand="block" type="submit" [disabled]="!newProposalForm.valid" [routerLink]="['','home']" outerDirection="back">Create</ion-button>
+      <ion-button color="danger" class="submit-btn" expand="block" type="submit" [disabled]="!newProposalForm.valid" (click)="createProposal(newProposalForm.value)">Create</ion-button>
     </form>
   </ion-content>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { ProposalService } from 'src/app/services/proposal.service';
 @Component({
   selector: 'app-new-proposal',
@@ -24,14 +25,9 @@ export class NewProposalPage implements OnInit {
     });
   }
 
-  goBack() {
-    this.router.navigateByUrl('home');
-  }
-
   createProposal(value) {
     this.proposalService.addProposal(value.title, value.description);
-    this.newProposalForm.reset();
-    this.goBack();
+    this.router.navigate(['home']);
   }
 
 }
