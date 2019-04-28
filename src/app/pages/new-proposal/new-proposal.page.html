@@ -11,7 +11,7 @@
 
 <ion-content>
   <ion-content padding>
-    <form [formGroup]="newProposalForm" (submit)="this.createProposal(newProposalForm.value)">
+    <form [formGroup]="newProposalForm" (submit)="createProposal(newProposalForm.value)">
       <ion-item>
         <ion-label color="primary" position="floating">Title</ion-label>
         <ion-input type="text" formControlName="title" required></ion-input>
