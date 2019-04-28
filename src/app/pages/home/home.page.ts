@@ -1,7 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { ProposalService } from '../../services/proposal.service';
 import { Proposal } from 'src/app/services/Proposal';
-import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-home',
