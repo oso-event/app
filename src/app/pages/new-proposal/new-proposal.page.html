@@ -21,7 +21,7 @@
         <ion-input type="text" formControlName="speakers" required></ion-input>
       </ion-item>
 
-      <ion-button color="danger" class="submit-btn" expand="block" type="submit" [disabled]="!newProposalForm.valid">Create</ion-button>
+      <ion-button color="danger" class="submit-btn" expand="block" type="submit" [disabled]="!newProposalForm.valid" [routerLink]="['','home']" outerDirection="back">Create</ion-button>
     </form>
   </ion-content>
 </ion-content>

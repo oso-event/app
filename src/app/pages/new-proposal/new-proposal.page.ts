@@ -32,7 +32,7 @@ export class NewProposalPage implements OnInit {
   createProposal(value) {
     this.proposalService.addProposal(value.title, value.description);
     this.newProposalForm.reset();
-    this.goBack();
+    // this.goBack();
   }
 
 }

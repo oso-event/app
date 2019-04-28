@@ -14,14 +14,13 @@ export class HomePage implements OnInit {
   constructor(private proposalService: ProposalService) {}
 
   ngOnInit() {
-    this.proposalService.getProposals().then((storedProposals) => {
-      this.proposals = storedProposals;
-    });
   }
 
   ionViewWillEnter() {
     this.proposalService.getProposals().then((storedProposals) => {
-      this.proposals = storedProposals;
+      if (storedProposals) {
+        this.proposals = storedProposals;
+      }
     });
   }
 

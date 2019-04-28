@@ -15,6 +15,7 @@ resources/
 
 .idea/
 .ionic/
+.firebase/
 .sourcemaps/
 .sass-cache/
 .tmp/
