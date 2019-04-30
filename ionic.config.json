@@ -1,7 +1,0 @@
-{
-  "name": "oso.app",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "angular"
-}
