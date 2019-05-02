@@ -8,6 +8,25 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{js}": [
+			"eslint",
+			"git add"
+		],
+		"*.vue": [
+			"eslint",
+			"git add"
+		],
+		"*.css": "stylelint",
+		"*.scss": [
+			"stylelint --syntax=scss --fix"
+		]
+	},
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
